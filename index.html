@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Office of the Provincial Administrator – Financial Document Tracker | Province of Batangas</title>
+<meta name="description" content="Office of the Provincial Administrator, Province of Batangas. Track the status of your financial documents (vouchers, payroll, TEV, AICS, educational assistance, contractor vouchers) by payee name or control number.">
+<meta name="keywords" content="Office of the Provincial Administrator, OPA Batangas, Provincial Capitol Batangas, document tracker, voucher status, payroll status, TEV, AICS">
+<meta property="og:title" content="Office of the Provincial Administrator – Financial Document Tracker">
+<meta property="og:description" content="Province of Batangas. Find the status of your financial document by payee name or control number.">
+<meta property="og:image" content="seal.png">
+<meta name="theme-color" content="#0b2a6b">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="seal.png">
+<style>
+  html,body{margin:0;height:100%;background:#f3f6fb;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+  #app{position:fixed;inset:0;width:100%;height:100%;border:0;display:block}
+  #loading{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#0b2a6b;text-align:center;padding:20px}
+  #loading img{width:96px;height:96px}
+  #loading b{font-family:Georgia,serif;font-size:22px}
+  #loading .bar{width:180px;height:4px;background:#dbe3f2;border-radius:2px;overflow:hidden}
+  #loading .bar i{display:block;width:40%;height:100%;background:#c8102e;animation:ld 1.1s ease-in-out infinite}
+  @keyframes ld{0%{margin-left:-40%}100%{margin-left:100%}}
+  #loading a{color:#1543a0;font-size:14px}
+  .sr{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+  <!-- Text for search engines and screen readers -->
+  <div class="sr">
+    <h1>Office of the Provincial Administrator – Province of Batangas</h1>
+    <p>Financial Document Tracker. Find the status of your document by payee name or control number: vouchers (TEV, other expenses), payroll, AICS / donation, educational assistance and contractor vouchers.</p>
+  </div>
+  <div id="loading">
+    <img src="seal.png" alt="Seal of the Province of Batangas">
+    <b>Office of the Provincial Administrator</b>
+    <div class="bar"><i></i></div>
+    <span>Loading the Financial Document Tracker…</span>
+    <a id="direct" href="https://script.google.com/macros/s/AKfycbxu1YBFWpOw7ips1CKAM9JLfDOqx_fgbiD7A2rH8_8RLPJapNFSmyX71dioxXUbhFj7mA/exec">Not loading? Open the tracker directly</a>
+  </div>
+  <iframe id="app" title="Office of the Provincial Administrator – Financial Document Tracker"
+    src="https://script.google.com/macros/s/AKfycbxu1YBFWpOw7ips1CKAM9JLfDOqx_fgbiD7A2rH8_8RLPJapNFSmyX71dioxXUbhFj7mA/exec"
+    allow="clipboard-write" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <script>
+    document.getElementById('app').addEventListener('load', function(){ document.getElementById('loading').style.display = 'none'; });
+  </script>
+</body>
+</html>
