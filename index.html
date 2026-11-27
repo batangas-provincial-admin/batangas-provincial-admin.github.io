@@ -1,49 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="google-site-verification" content="ybfpE8imbMxprcNFrWUumtOziO_PySWHYKgEQ4Qd1q8" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Office of the Provincial Administrator – Financial Document Tracker | Province of Batangas</title>
-<meta name="description" content="Office of the Provincial Administrator, Province of Batangas. Track the status of your financial documents (vouchers, payroll, TEV, AICS, educational assistance, contractor vouchers) by payee name or control number.">
-<meta name="keywords" content="Office of the Provincial Administrator, OPA Batangas, Provincial Capitol Batangas, document tracker, voucher status, payroll status, TEV, AICS">
-<meta property="og:title" content="Office of the Provincial Administrator – Financial Document Tracker">
-<meta property="og:description" content="Province of Batangas. Find the status of your financial document by payee name or control number.">
-<meta property="og:image" content="seal.png">
+<title>OPA Tracking – Batangas Provincial Admin Document Tracking System</title>
+<meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0b2a6b">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="seal.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="OPA Tracking">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<script>
+  // When opened from the installed icon, go straight to the app.
+  (function () {
+    var APP = 'https://claude.ai/artifact/TY1bxJ8t5ey9pEyeHqeYeD';
+    var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+    if (standalone || /[?&]launch=1/.test(location.search)) location.replace(APP);
+    window.OPA_APP = APP;
+  })();
+</script>
 <style>
-  html,body{margin:0;height:100%;background:#f3f6fb;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
-  #app{position:fixed;inset:0;width:100%;height:100%;border:0;display:block}
-  #loading{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#0b2a6b;text-align:center;padding:20px}
-  #loading img{width:96px;height:96px}
-  #loading b{font-family:Georgia,serif;font-size:22px}
-  #loading .bar{width:180px;height:4px;background:#dbe3f2;border-radius:2px;overflow:hidden}
-  #loading .bar i{display:block;width:40%;height:100%;background:#c8102e;animation:ld 1.1s ease-in-out infinite}
-  @keyframes ld{0%{margin-left:-40%}100%{margin-left:100%}}
-  #loading a{color:#1543a0;font-size:14px}
-  .sr{position:absolute;left:-9999px}
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#0b2a6b,#14408f 60%,#0b2a6b);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#1f2937;padding:16px;box-sizing:border-box}
+  .card{background:#fff;border-radius:16px;max-width:460px;width:100%;padding:28px 26px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.35);border-top:6px solid #c8102e}
+  .card img{width:112px;height:112px;border-radius:24px;box-shadow:0 6px 16px rgba(11,42,107,.35)}
+  h1{font-size:20px;color:#0b2a6b;margin:16px 0 4px;line-height:1.3}
+  .sub{color:#6b7280;font-size:14px;margin:0 0 18px}
+  .btn{display:block;width:100%;box-sizing:border-box;padding:13px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;margin:8px 0;border:0;cursor:pointer;font-family:inherit}
+  .open{background:#c8102e;color:#fff}
+  .inst{background:#0b2a6b;color:#fff}
+  .how{text-align:left;background:#f3f6fb;border-radius:8px;padding:12px 14px;margin-top:16px;font-size:14px;line-height:1.55}
+  .how b{color:#0b2a6b}
+  .how ol{margin:6px 0 0;padding-left:20px}
+  .note{color:#6b7280;font-size:12.5px;margin-top:14px}
 </style>
 </head>
 <body>
-  <!-- Text for search engines and screen readers -->
-  <div class="sr">
-    <h1>Office of the Provincial Administrator – Province of Batangas</h1>
-    <p>Financial Document Tracker. Find the status of your document by payee name or control number: vouchers (TEV, other expenses), payroll, AICS / donation, educational assistance and contractor vouchers.</p>
+  <div class="card">
+    <img src="icon-512.png" alt="Batangas Provincial Admin Document Tracking System">
+    <h1>Batangas Provincial Admin Document Tracking System</h1>
+    <p class="sub">Office of the Provincial Administrator · Staff only</p>
+    <button class="btn inst" id="installBtn" type="button" hidden>⬇ Install app</button>
+    <a class="btn open" id="openBtn" href="https://claude.ai/artifact/TY1bxJ8t5ey9pEyeHqeYeD">Open the app</a>
+    <div class="how" id="how"></div>
+    <p class="note">You will be asked to sign in to Claude the first time.</p>
   </div>
-  <div id="loading">
-    <img src="seal.png" alt="Seal of the Province of Batangas">
-    <b>Office of the Provincial Administrator</b>
-    <div class="bar"><i></i></div>
-    <span>Loading the Financial Document Tracker…</span>
-    <a id="direct" href="https://script.google.com/macros/s/AKfycbxu1YBFWpOw7ips1CKAM9JLfDOqx_fgbiD7A2rH8_8RLPJapNFSmyX71dioxXUbhFj7mA/exec">Not loading? Open the tracker directly</a>
-  </div>
-  <iframe id="app" title="Office of the Provincial Administrator – Financial Document Tracker"
-    src="https://script.google.com/macros/s/AKfycbxu1YBFWpOw7ips1CKAM9JLfDOqx_fgbiD7A2rH8_8RLPJapNFSmyX71dioxXUbhFj7mA/exec"
-    allow="clipboard-write" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  <script>
-    document.getElementById('app').addEventListener('load', function(){ document.getElementById('loading').style.display = 'none'; });
-  </script>
+<script>
+  var ua = navigator.userAgent, how = document.getElementById('how');
+  var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/.test(ua);
+  if (isIOS) how.innerHTML = '<b>Add to your iPhone / iPad (use Safari):</b><ol><li>Tap the <b>Share</b> button (square with arrow).</li><li>Tap <b>Add to Home Screen</b>.</li><li>Keep the name <b>OPA Tracking</b> and tap <b>Add</b>.</li></ol>';
+  else if (isAndroid) how.innerHTML = '<b>Add to your Android phone (use Chrome):</b><ol><li>Tap <b>Install app</b> above, or tap <b>⋮</b> → <b>Add to Home screen</b>.</li><li>Keep the name <b>OPA Tracking</b> and tap <b>Add</b> / <b>Install</b>.</li></ol>';
+  else how.innerHTML = '<b>Install on your computer:</b><ol><li>Click <b>Install app</b> above, if shown.</li><li>Or in <b>Edge</b>: <b>⋯</b> → <b>Apps</b> → <b>Install this site as an app</b>. In <b>Chrome</b>: <b>⋮</b> → <b>Cast, save and share</b> → <b>Install page as app</b>.</li><li>It gets a desktop / taskbar icon and opens in its own window.</li></ol>';
+  var deferred = null, btn = document.getElementById('installBtn');
+  window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; btn.hidden = false; });
+  btn.addEventListener('click', function () { if (!deferred) return; deferred.prompt(); deferred.userChoice.finally(function () { deferred = null; btn.hidden = true; }); });
+  window.addEventListener('appinstalled', function () { btn.hidden = true; how.innerHTML = '<b>✓ Installed.</b> Open <b>OPA Tracking</b> from your home screen or desktop.'; });
+</script>
 </body>
 </html>
